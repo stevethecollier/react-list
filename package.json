@@ -1,12 +1,12 @@
 {
-  "name": "react-list",
+  "name": "@stevethecollier/react-list",
   "version": "0.8.9",
-  "author": "Casey Foster <c@sey.me>",
+  "author": "Casey Foster <c@sey.me>, @stevethecollier",
   "license": "MIT",
   "main": "react-list.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/coderiety/react-list"
+    "url": "https://github.com/stevethecollier/react-list"
   },
   "dependencies": {
     "prop-types": "15"
