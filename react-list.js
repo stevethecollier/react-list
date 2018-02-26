@@ -208,6 +208,11 @@
         return this.el || this.items;
       }
     }, {
+      key: 'getItemEls',
+      value: function getItemEls() {
+        return this.items.children || this.items.props.children;
+      }
+    }, {
       key: 'getScrollParent',
       value: function getScrollParent() {
         var _props = this.props,
@@ -309,7 +314,7 @@
           return { itemSize: itemSize, itemsPerRow: itemsPerRow };
         }
 
-        var itemEls = this.items.children;
+        var itemEls = this.getItemEls(this);
         if (!itemEls.length) return {};
 
         var firstEl = itemEls[0];
@@ -364,7 +369,7 @@
         var _getStartAndEnd = this.getStartAndEnd(),
             end = _getStartAndEnd.end;
 
-        var itemEls = this.items.children;
+        var itemEls = this.getItemEls(this);
         var elEnd = 0;
 
         if (itemEls.length) {
@@ -479,7 +484,7 @@
         var cache = this.cache;
         var from = this.state.from;
 
-        var itemEls = this.items.children;
+        var itemEls = this.getItemEls(this);
         var sizeKey = OFFSET_SIZE_KEYS[this.props.axis];
         for (var i = 0, l = itemEls.length; i < l; ++i) {
           cache[from + i] = itemEls[i][sizeKey];

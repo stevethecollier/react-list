@@ -91,7 +91,7 @@ module.exports = class ReactList extends Component {
   }
 
   componentDidMount() {
-    this.updateFrame = this.updateFrame.bind(this);
+    this.updateFrame = this.updateFrame.bind();
     window.addEventListener('resize', this.updateFrame);
     this.updateFrame(this.scrollTo.bind(this, this.props.initialIndex));
   }
@@ -138,6 +138,10 @@ module.exports = class ReactList extends Component {
 
   getEl() {
     return this.el || this.items;
+  }
+
+  getItemEls() {
+    return this.items.children || this.items.props.children;
   }
 
   getScrollParent() {
@@ -218,7 +222,7 @@ module.exports = class ReactList extends Component {
       return {itemSize, itemsPerRow};
     }
 
-    const itemEls = this.items.children;
+    const itemEls = this.getItemEls();
     if (!itemEls.length) return {};
 
     const firstEl = itemEls[0];
@@ -269,7 +273,7 @@ module.exports = class ReactList extends Component {
 
   updateSimpleFrame(cb) {
     const {end} = this.getStartAndEnd();
-    const itemEls = this.items.children;
+    const itemEls = this.getItemEls();
     let elEnd = 0;
 
     if (itemEls.length) {
@@ -364,7 +368,7 @@ module.exports = class ReactList extends Component {
   cacheSizes() {
     const {cache} = this;
     const {from} = this.state;
-    const itemEls = this.items.children;
+    const itemEls = this.getItemEls();
     const sizeKey = OFFSET_SIZE_KEYS[this.props.axis];
     for (let i = 0, l = itemEls.length; i < l; ++i) {
       cache[from + i] = itemEls[i][sizeKey];
