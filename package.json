@@ -1,12 +1,12 @@
 {
   "name": "@stevethecollier/react-list",
   "version": "0.8.9",
-  "author": "Casey Foster <c@sey.me>, @stevethecollier",
+  "author": "Casey Foster <c@sey.me>",
   "license": "MIT",
   "main": "react-list.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/stevethecollier/react-list"
+    "url": "git+https://github.com/stevethecollier/react-list.git"
   },
   "dependencies": {
     "prop-types": "15"
@@ -29,5 +29,16 @@
     "eslint-plugin-react": "7.3.0",
     "react-dom": "15.6.1",
     "react": "^16.2.0"
+  },
+  "description": "A versatile infinite scroll [React] component.",
+  "bugs": {
+    "url": "https://github.com/stevethecollier/react-list/issues"
+  },
+  "homepage": "https://github.com/stevethecollier/react-list#readme",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   }
 }
